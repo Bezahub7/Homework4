@@ -5,6 +5,26 @@ toc: TRUE
 editor_options: 
   chunk_output_type: inline
 ---
+1. > "If it weren't for my lawyer, I'd still be in prison.
+>  It went a lot faster with two people digging."
+>
+> `r tufte::quote_footer('--- Joe Martin')`
 
+## Task 1: Conceptual Questions
+>  "1. ../MyData.csv".
 
-Answers go here!
+>  "2. The major benefit of R project is that it provides an easy way to divide work into mutliple contexts.
+>     Each project can have their own Working Directory,Workspace,History,Folder sturcture and source documents.
+>  so it is really easy to organize your work."
+ 
+>  "3. Git: is a version control software while, Github: is an online hosting service for Git-based projects."
+
+>  "4. A tibble, a special type of data frame used by the tidyverse to avoid some common gotchas.
+>The most important difference between tibbles and data frames is the way tibbles print; they are designed for large datasets, so they only show the first few rows and only the columns that fit on one screen."  
+
+>  "5.
+```{r}
+library(dplyr) 
+  select(starts_with("Petal"), Species) |>
+  filter(Petal.Length < 1.55) |>
+  arrange(Species)"
