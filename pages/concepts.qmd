@@ -5,10 +5,6 @@ toc: TRUE
 editor_options: 
   chunk_output_type: inline
 ---
-1. > "If it weren't for my lawyer, I'd still be in prison.
->  It went a lot faster with two people digging."
->
-> `r tufte::quote_footer('--- Joe Martin')`
 
 ## Task 1: Conceptual Questions
 >  "1. ../MyData.csv".
@@ -23,8 +19,11 @@ editor_options:
 >The most important difference between tibbles and data frames is the way tibbles print; they are designed for large datasets, so they only show the first few rows and only the columns that fit on one screen."  
 
 >  "5.
-```{r}
-library(dplyr) 
-  select(starts_with("Petal"), Species) |>
-  filter(Petal.Length < 1.55) |>
-  arrange(Species)"
+>   library(dplyr)
+>    as_tibble(iris)|>
+>   select(starts_with("Petal"), Species) |>
+>   filter(Petal.Length < 1.55) |>
+>   arrange(Species)"
+
+
+

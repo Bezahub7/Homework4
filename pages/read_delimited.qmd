@@ -6,15 +6,16 @@ editor_options:
   chunk_output_type: inline
 ---
 # Task 2 Reading Delimited Data
-- read data, add column name and print out tibble
-```{r}
+- Read data, add column name and print out tibble
+```{r, warning=FALSE}
 library(readr)
 glass_data <- read_csv("https://www4.stat.ncsu.edu/online/datasets/glass.data",
 col_names = c("Id", "RI", "Na", "Mg", "Al", "Si", "K", "Ca", "Ba", "Fe","Type_of_glass"))
 glass_data
 ```
 -  Rewrite variable "Type_of_glass" values 
-```{r}
+-  Filter for Fe <0.2 and glass type "tableware" and "headlamps"
+```{r, warning=FALSE}
 library(dplyr)
 glass_data|>
   mutate(Type_of_glass=if_else(Type_of_glass == 1, "building_windows_float_processed", 
@@ -29,8 +30,8 @@ glass_data|>
 
 ```
 - Yeast Data
--  read data, add column name and print out tibble
-```{r}
+-  Read data, add column name and print out tibble
+```{r, warning=FALSE}
 yeast_data <- read_fwf(file="https://www4.stat.ncsu.edu/online/datasets/yeast.data", fwf_widths(c(10,4,4,4,4,4,4,4,4,3),c("seq_name","mcg", "gvh", "alm", "mit", "erl", "pox", "vac", "nuc","class")))
 
   yeast_data
@@ -38,7 +39,7 @@ yeast_data <- read_fwf(file="https://www4.stat.ncsu.edu/online/datasets/yeast.da
 ```
 -  Remove columns, add mean and median to the numeric columns and group by class
 
-```{r}
+```{r, warning=FALSE}
 library(dplyr)
 yeast_data |> select(-c(seq_name,nuc))|> group_by(class)|>  mutate(across(where(is.numeric),list(mean=mean,median=median), .names = "{.col}_{.fn}"))
 ```
